@@ -1,0 +1,49 @@
+{
+  "name": "zeparty-backend",
+  "version": "1.0.0",
+  "description": "Shared Node.js + Express.js backend for ZeParty Flutter Mobile App and React Admin Dashboard",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "test": "node tests/auth.test.js",
+    "test:phase1": "node --test tests/serializer.test.js tests/encryption.test.js",
+    "test:phase2": "node --test tests/user_domain.test.js tests/room_domain.test.js tests/banner_announcement.test.js tests/post_feed.test.js",
+    "test:phase3": "node --test tests/wallet_domain.test.js tests/ledger_domain.test.js tests/recharge_plan.test.js tests/offline_recharge.test.js tests/online_recharge.test.js tests/payment_provider.test.js tests/payment_webhook.test.js tests/idempotency_financial.test.js tests/refund_domain.test.js tests/chargeback_domain.test.js tests/financial_rbac.test.js",
+    "test:phase4": "node --test tests/realtime_auth.test.js tests/room_presence.test.js tests/room_socket.test.js tests/seat_realtime.test.js tests/room_lifecycle.test.js tests/agora_token.test.js tests/gift_tipping.test.js tests/gift_idempotency.test.js tests/realtime_rbac.test.js tests/realtime_rate_limit.test.js tests/realtime_concurrency.test.js",
+    "test:phase5": "node --test tests/host_earnings.test.js tests/host_settlement.test.js tests/agency_settlement.test.js tests/bd_settlement.test.js tests/settlement_calculation.test.js tests/settlement_approval.test.js tests/settlement_execution.test.js tests/settlement_idempotency.test.js tests/settlement_concurrency.test.js tests/settlement_rbac.test.js tests/settlement_idor.test.js tests/settlement_adjustment.test.js tests/settlement_reconciliation.test.js tests/settlement_realtime.test.js",
+    "test:phase6": "node --test tests/social_profile.test.js tests/post_crud.test.js tests/post_visibility.test.js tests/feed.test.js tests/feed_pagination.test.js tests/post_like.test.js tests/comments.test.js tests/follow.test.js tests/follow_privacy.test.js tests/social_rbac.test.js tests/social_idor.test.js tests/social_rate_limit.test.js tests/social_realtime.test.js tests/social_concurrency.test.js tests/social_reporting.test.js",
+    "test:phase8": "node --test tests/report_lifecycle.test.js tests/report_authorization.test.js tests/report_concurrency.test.js tests/moderation_actions.test.js tests/moderation_rbac.test.js tests/moderation_idor.test.js tests/moderation_audit.test.js tests/restrictions.test.js tests/restriction_expiry.test.js tests/ban_suspension.test.js tests/social_moderation.test.js tests/chat_moderation.test.js tests/moderation_realtime.test.js tests/support_ticket.test.js tests/support_ticket_rbac.test.js tests/support_ticket_idor.test.js tests/support_ticket_concurrency.test.js tests/moderation_rate_limit.test.js tests/moderation_idempotency.test.js",
+    "test:phase9": "node --test tests/notification_device.test.js tests/notification_token_refresh.test.js tests/notification_create.test.js tests/notification_list.test.js tests/notification_read.test.js tests/notification_preferences.test.js tests/notification_fcm.test.js tests/notification_delivery_failure.test.js tests/notification_invalid_token.test.js tests/notification_idempotency.test.js tests/notification_realtime.test.js tests/notification_rbac.test.js tests/notification_idor.test.js tests/notification_rate_limit.test.js tests/admin_notification.test.js tests/admin_notification_rbac.test.js tests/admin_notification_targeting.test.js tests/notification_concurrency.test.js tests/notification_post_commit.test.js",
+    "test:phase10": "node --test tests/phase10_api_contract.test.js tests/phase10_auth_integration.test.js tests/phase10_rbac_idor.test.js tests/phase10_financial_integration.test.js tests/phase10_room_realtime.test.js tests/phase10_social_integration.test.js tests/phase10_moderation_integration.test.js tests/phase10_support_integration.test.js tests/phase10_notification_integration.test.js tests/phase10_admin_integration.test.js tests/phase10_failure_isolation.test.js tests/phase10_idempotency.test.js tests/phase10_concurrency.test.js tests/phase10_security.test.js tests/phase10_configuration.test.js",
+    "test:all": "node --test tests/serializer.test.js tests/encryption.test.js tests/auth_unit.test.js tests/rbac_security.test.js tests/user_domain.test.js tests/room_domain.test.js tests/banner_announcement.test.js tests/post_feed.test.js tests/wallet_domain.test.js tests/ledger_domain.test.js tests/recharge_plan.test.js tests/offline_recharge.test.js tests/online_recharge.test.js tests/payment_provider.test.js tests/payment_webhook.test.js tests/idempotency_financial.test.js tests/refund_domain.test.js tests/chargeback_domain.test.js tests/financial_rbac.test.js tests/realtime_auth.test.js tests/room_presence.test.js tests/room_socket.test.js tests/seat_realtime.test.js tests/room_lifecycle.test.js tests/agora_token.test.js tests/gift_tipping.test.js tests/gift_idempotency.test.js tests/realtime_rbac.test.js tests/realtime_rate_limit.test.js tests/realtime_concurrency.test.js tests/approval_workflow.test.js tests/policy_engine.test.js tests/auto_restore.test.js tests/host_agency.test.js tests/bd_reseller.test.js tests/merchant.test.js tests/gifts.test.js tests/assets.test.js tests/store.test.js tests/host_earnings.test.js tests/host_settlement.test.js tests/agency_settlement.test.js tests/bd_settlement.test.js tests/settlement_calculation.test.js tests/settlement_approval.test.js tests/settlement_execution.test.js tests/settlement_idempotency.test.js tests/settlement_concurrency.test.js tests/settlement_rbac.test.js tests/settlement_idor.test.js tests/settlement_adjustment.test.js tests/settlement_reconciliation.test.js tests/settlement_realtime.test.js tests/social_profile.test.js tests/post_crud.test.js tests/post_visibility.test.js tests/feed.test.js tests/feed_pagination.test.js tests/post_like.test.js tests/comments.test.js tests/follow.test.js tests/follow_privacy.test.js tests/social_rbac.test.js tests/social_idor.test.js tests/social_rate_limit.test.js tests/social_realtime.test.js tests/social_concurrency.test.js tests/social_reporting.test.js tests/report_lifecycle.test.js tests/report_authorization.test.js tests/report_concurrency.test.js tests/moderation_actions.test.js tests/moderation_rbac.test.js tests/moderation_idor.test.js tests/moderation_audit.test.js tests/restrictions.test.js tests/restriction_expiry.test.js tests/ban_suspension.test.js tests/social_moderation.test.js tests/chat_moderation.test.js tests/moderation_realtime.test.js tests/support_ticket.test.js tests/support_ticket_rbac.test.js tests/support_ticket_idor.test.js tests/support_ticket_concurrency.test.js tests/moderation_rate_limit.test.js tests/moderation_idempotency.test.js tests/notification_device.test.js tests/notification_token_refresh.test.js tests/notification_create.test.js tests/notification_list.test.js tests/notification_read.test.js tests/notification_preferences.test.js tests/notification_fcm.test.js tests/notification_delivery_failure.test.js tests/notification_invalid_token.test.js tests/notification_idempotency.test.js tests/notification_realtime.test.js tests/notification_rbac.test.js tests/notification_idor.test.js tests/notification_rate_limit.test.js tests/admin_notification.test.js tests/admin_notification_rbac.test.js tests/admin_notification_targeting.test.js tests/notification_concurrency.test.js tests/notification_post_commit.test.js tests/phase10_api_contract.test.js tests/phase10_auth_integration.test.js tests/phase10_rbac_idor.test.js tests/phase10_financial_integration.test.js tests/phase10_room_realtime.test.js tests/phase10_social_integration.test.js tests/phase10_moderation_integration.test.js tests/phase10_support_integration.test.js tests/phase10_notification_integration.test.js tests/phase10_admin_integration.test.js tests/phase10_failure_isolation.test.js tests/phase10_idempotency.test.js tests/phase10_concurrency.test.js tests/phase10_security.test.js tests/phase10_configuration.test.js",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "npx prisma migrate dev",
+    "prisma:seed": "npx prisma db seed",
+    "prisma:studio": "npx prisma studio"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.0.0",
+    "@socket.io/redis-adapter": "^8.3.0",
+    "agora-token": "^2.0.4",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "pino": "^9.1.0",
+    "pino-http": "^10.1.0",
+    "redis": "^4.6.14",
+    "socket.io": "^4.8.3",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.2",
+    "prisma": "^6.0.0"
+  }
+}
